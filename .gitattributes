@@ -1,2 +1,1 @@
-Impact/src/*linguist-language=Assembly
-Sandbox/src/* linguist-language=COBOL
+*.h linguist-language=Assembly
