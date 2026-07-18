@@ -37,6 +37,12 @@
     <ClInclude Include="src\Impact\EntryPoint.h">
       <Filter>Impact</Filter>
     </ClInclude>
+    <ClInclude Include="src\Impact\Layer.h">
+      <Filter>Impact</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Impact\LayerStack.h">
+      <Filter>Impact</Filter>
+    </ClInclude>
     <ClInclude Include="src\Impact\Logger.h">
       <Filter>Impact</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Impact\Application.cpp">
+      <Filter>Impact</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Impact\Layer.cpp">
+      <Filter>Impact</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Impact\LayerStack.cpp">
       <Filter>Impact</Filter>
     </ClCompile>
     <ClCompile Include="src\Impact\Logger.cpp">

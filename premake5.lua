@@ -43,12 +43,15 @@ project "Impact"
 	links
 	{
 		"GLFW",
-		"opengl32.lib"
+		"opengl32.lib",
+		"User32.lib",
+		"Gdi32.lib",
+		"Shell32.lib"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "Off"
 		systemversion "latest"
 
 		defines
@@ -64,14 +67,17 @@ project "Impact"
 
 	filter "configurations:Debug"
 		defines "IMP_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "IMP_RELEASE"
+		buildoptions "/MDd"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "IMP_DIST"
+		buildoptions "/MDd"
 		optimize "On"
 
 project "Sandbox"
@@ -111,12 +117,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "IMP_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "IMP_RELEASE"
+		buildoptions "/MDd"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "IMP_DIST"
+		buildoptions "/MDd"
 		optimize "On"
