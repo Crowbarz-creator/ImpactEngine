@@ -10,13 +10,22 @@ workspace "Impact"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Impactvendor/GLFW/include"
+
+include "Impact/vendor/GLFW"
+
 project "Impact"
 	location "Impact"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}/")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}/")
+
+	pchheader "imppch.h"
+	pchsource "Impact/src/imppch.cpp"
 
 	files
 	{
@@ -26,7 +35,15 @@ project "Impact"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -42,7 +59,7 @@ project "Impact"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPYFILE} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox/")
 		}
 
 	filter "configurations:Debug"
@@ -62,8 +79,8 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}/")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}/")
 
 	files
 	{
@@ -73,7 +90,13 @@ project "Sandbox"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"Impact/src",
+		"Impact/vendor/spdlog/include"
+	}
+
+	links
+	{
+		"Impact"
 	}
 
 	filter "system:windows"
@@ -83,13 +106,7 @@ project "Sandbox"
 
 		defines
 		{
-			"IMP_PLATFORM_WINDOWS",
-			"IMP_BUILD_DLL"
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			"IMP_PLATFORM_WINDOWS"
 		}
 
 	filter "configurations:Debug"
