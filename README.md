@@ -7,10 +7,12 @@ Early access code. Still in active development.
 - Added premake
 - Added loggers
 - Implemented GLFW (And Window)
+- Implemented Dear ImGui
+- Implemented GLAD
 
 **TUTORIAL**
 
-Just double click gsln.bat
+Just double click gsln.bat, and the solution file will appear.
 
 __NOTES__
 
