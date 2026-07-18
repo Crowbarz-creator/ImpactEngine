@@ -6,6 +6,7 @@ Early access code. Still in active development.
 - Added the solution generator (gsln.bat)
 - Added premake
 - Added loggers
+- Implemented GLFW (And Window)
 
 **TUTORIAL**
 
