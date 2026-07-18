@@ -1,4 +1,4 @@
-workspace "Impact"
+﻿workspace "Impact"
 	architecture "x64"
 
 	configurations
@@ -12,9 +12,13 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "Impactvendor/GLFW/include"
+IncludeDir["GLFW"] = "Impact/vendor/GLFW/include"
+IncludeDir["Glad"] = "Impact/vendor/Glad/include"
+IncludeDir["ImGui"] = "Impact/vendor/imgui"
 
 include "Impact/vendor/GLFW"
+include "Impact/vendor/Glad"
+include "Impact/vendor/imgui"
 
 project "Impact"
 	location "Impact"
@@ -37,13 +41,18 @@ project "Impact"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}",
+		"Impact/vendor/imgui/backends"
 	}
 
 	links
 	{
 		"GLFW",
 		"opengl32.lib",
+		"Glad",
+		"ImGui",
 		"User32.lib",
 		"Gdi32.lib",
 		"Shell32.lib"
@@ -53,11 +62,13 @@ project "Impact"
 		cppdialect "C++17"
 		staticruntime "Off"
 		systemversion "latest"
+		buildoptions "/utf-8"
 
 		defines
 		{
 			"IMP_PLATFORM_WINDOWS",
-			"IMP_BUILD_DLL"
+			"IMP_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -109,6 +120,7 @@ project "Sandbox"
 		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
+		buildoptions "/utf-8"
 
 		defines
 		{
@@ -129,3 +141,42 @@ project "Sandbox"
 		defines "IMP_DIST"
 		buildoptions "/MDd"
 		optimize "On"
+
+project "ImGui"
+	location "ImGui"
+	kind "StaticLib"
+	language "C++"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}/")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}/")
+
+	files
+	{
+		"Impact/vendor/imgui/imgui.cpp",
+		"Impact/vendor/imgui/imgui_demo.cpp",
+		"Impact/vendor/imgui/imgui_draw.cpp",
+		"Impact/vendor/imgui/imgui_tables.cpp",
+		"Impact/vendor/imgui/imgui_widgets.cpp",
+		
+		"Impact/vendor/imgui/backends/imgui_impl_glfw.cpp",
+		"Impact/vendor/imgui/backends/imgui_impl_opengl3.cpp"
+	}
+
+	includedirs
+	{
+		"Impact/vendor/imgui",
+		"Impact/vendor/imgui/backends",
+		"Impact/vendor/GLFW/include",
+		"Impact/vendor/Glad/include"
+	}
+
+	filter "system:windows"
+		cppdialect "C++17"
+		staticruntime "Off"
+		systemversion "latest"
+		buildoptions "/utf-8"
+
+		defines
+		{
+			"IMGUI_IMPL_OPENGL_LOADER_GLAD"
+		}

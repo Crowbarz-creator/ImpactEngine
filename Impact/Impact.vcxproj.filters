@@ -7,6 +7,9 @@
     <Filter Include="Impact">
       <UniqueIdentifier>{E31D1BBA-CFBF-4590-B87A-59E4A4BBCCE0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Impact\ImGui">
+      <UniqueIdentifier>{4D3129B0-3994-B854-E219-F10ACE5B84D7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +40,9 @@
     <ClInclude Include="src\Impact\EntryPoint.h">
       <Filter>Impact</Filter>
     </ClInclude>
+    <ClInclude Include="src\Impact\ImGui\ImGuiLayer.h">
+      <Filter>Impact\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Impact\Layer.h">
       <Filter>Impact</Filter>
     </ClInclude>
@@ -57,6 +63,9 @@
   <ItemGroup>
     <ClCompile Include="src\Impact\Application.cpp">
       <Filter>Impact</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Impact\ImGui\ImGuiLayer.cpp">
+      <Filter>Impact\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Impact\Layer.cpp">
       <Filter>Impact</Filter>

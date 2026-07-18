@@ -6,6 +6,8 @@
 #include "Impact/Layer.h"
 #include "Impact/Logger.h"
 
+#include "Impact/ImGui/ImGuiLayer.h"
+
 // --Entry Point----------------------
 #include "Impact/EntryPoint.h"		//
 // -----------------------------------
