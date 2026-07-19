@@ -1,5 +1,5 @@
 # Impact Engine
-__Impact Engine__ is currently in early access and under active development. Features and APIs may change as development continues.
+__Impact Engine__ is currently in __early access__ and __under active development__. __Features__ and __APIs may change as development continues__.
 
 **CHANGELOGS:**
 
