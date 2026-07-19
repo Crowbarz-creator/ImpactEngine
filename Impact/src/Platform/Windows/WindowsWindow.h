@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Impact/Window.h"
+#include "Impact/Renderer/GraphicsContext.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -29,6 +30,7 @@ namespace Impact {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

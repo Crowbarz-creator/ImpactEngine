@@ -1356,6 +1356,17 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Impact\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Impact\Renderer\Shader.h" />
+    <ClInclude Include="src\Impact\Renderer\Buffer.h" />
+    <ClInclude Include="src\Impact\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Impact\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Impact\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Impact\Renderer\RenderCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Impact\Application.cpp">
@@ -1385,5 +1396,15 @@
     <ClCompile Include="src\imppch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Impact\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Impact\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Impact\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Impact\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Impact\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Impact\Renderer\RenderCommand.cpp" />
   </ItemGroup>
 </Project>

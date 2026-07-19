@@ -9,12 +9,16 @@
 
 #include "ImGui/ImGuiLayer.h"
 
+#include "Impact/Renderer/Shader.h"
+#include "Impact/Renderer/Buffer.h"
+#include "Impact/Renderer/VertexArray.h"
+
 namespace Impact {
 	class IMPACT_API Application
 	{
 	public:
 		Application();
-		virtual ~Application();
+		virtual ~Application() = default;
 
 		void Run();
 
@@ -33,6 +37,14 @@ namespace Impact {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		std::shared_ptr<VertexArray> m_VertexArray;
+		std::shared_ptr<Shader> m_Shader;
+
+		std::shared_ptr<VertexArray> m_SquareVA;
+		std::shared_ptr<Shader> m_BlueShader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 	};

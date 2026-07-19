@@ -25,11 +25,11 @@ namespace Impact {
 #define IMP_CORE_INFO(...)	    ::Impact::Logger::GetCoreLogger()->info(__VA_ARGS__)
 #define IMP_CORE_WARN(...)	    ::Impact::Logger::GetCoreLogger()->warn(__VA_ARGS__)
 #define IMP_CORE_ERROR(...)     ::Impact::Logger::GetCoreLogger()->error(__VA_ARGS__)
-#define IMP_CORE_FATAL(...)     ::Impact::Logger::GetCoreLogger()->fatal(__VA_ARGS__)
+#define IMP_CORE_CRITICAL(...)     ::Impact::Logger::GetCoreLogger()->critical(__VA_ARGS__)
 
 // Client log macros
 #define IMP_TRACE(...)          ::Impact::Logger::GetClientLogger()->trace(__VA_ARGS__)
 #define IMP_INFO(...)           ::Impact::Logger::GetClientLogger()->info(__VA_ARGS__)
 #define IMP_WARN(...)           ::Impact::Logger::GetClientLogger()->warn(__VA_ARGS__)
 #define IMP_ERROR(...)          ::Impact::Logger::GetClientLogger()->error(__VA_ARGS__)
-#define IMP_FATAL(...)          ::Impact::Logger::GetClientLogger()->fatal(__VA_ARGS__)
+#define IMP_CRITICAL(...)          ::Impact::Logger::GetClientLogger()->critical(__VA_ARGS__)

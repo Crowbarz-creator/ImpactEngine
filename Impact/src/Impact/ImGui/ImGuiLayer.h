@@ -12,7 +12,7 @@ namespace Impact {
 	{
 	public:
 		ImGuiLayer();
-		~ImGuiLayer();
+		~ImGuiLayer() = default;
 
 		virtual void OnImGuiRender();
 
