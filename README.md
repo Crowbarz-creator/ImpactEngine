@@ -15,7 +15,7 @@ Just double click gsln.bat, and the solution file will appear.
 
 __Recommended tips__
 
-- If you dont wanna join the official discord. Feel free to play with bugs :)
+- If you dont wanna join the official discord. Feel free to work with bugs :)
 - Found a bug? Open an issue. Or just pretend like its a feature :D
 - Crashes alot? Ask Kawalanski, he implemented those stuff. (He may be a little stupid)
 - Need help? Open an issue. If i dont respond, then im probably sleeping or working on the engine.
