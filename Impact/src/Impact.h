@@ -6,6 +6,10 @@
 #include "Impact/Layer.h"
 #include "Impact/Logger.h"
 
+#include "Impact/Input.h"
+#include "Impact/KeyCodes.h"
+#include "Impact/MouseButtonCodes.h"
+
 #include "Impact/ImGui/ImGuiLayer.h"
 
 // --Entry Point----------------------
