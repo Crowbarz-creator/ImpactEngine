@@ -3,12 +3,11 @@ __Impact Engine__ is currently in __early access__ and __under active developmen
 
 **CHANGELOGS:**
 
-- Added the solution generator (gsln.bat)
-- Added premake
-- Added loggers
-- Implemented GLFW (And Window)
-- Implemented Dear ImGui
-- Implemented GLAD
+- Improved Dear ImGui functions
+- I forgot
+- I forgot
+- I forgot
+- I forgot
 
 **TUTORIAL**
 
