@@ -6,11 +6,10 @@ __Impact Engine__ is currently in __early access__ and __under active developmen
 
 **CHANGELOGS:**
 
-- Improved Dear ImGui functions
-- I forgot
-- I forgot
-- I forgot
-- I forgot
+- Implemented OpenGL
+- Added blending
+- Added the color changing thingy
+- Improved stuff
 
 **TUTORIAL**
 
