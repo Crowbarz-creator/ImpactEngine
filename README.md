@@ -1,4 +1,7 @@
 # Impact Engine
+
+![Impact](/Resources/Branding/ImpactEngineLogo.png?raw=true "Impact")
+
 __Impact Engine__ is currently in __early access__ and __under active development__. __Features__ and __APIs may change as development continues__.
 
 **CHANGELOGS:**
