@@ -7,14 +7,15 @@
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
 
-#include "ImGui/ImGuiLayer.h"
+#include "Impact/Core/Timestep.h"
 
-#include "Impact/Renderer/Shader.h"
+#include "Impact/ImGui/ImGuiLayer.h"
+
 #include "Impact/Renderer/Buffer.h"
-#include "Impact/Renderer/VertexArray.h"
 
 namespace Impact {
-	class IMPACT_API Application
+
+	class Application
 	{
 	public:
 		Application();
@@ -32,19 +33,16 @@ namespace Impact {
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		std::shared_ptr<VertexArray> m_VertexArray;
-		std::shared_ptr<Shader> m_Shader;
-
-		std::shared_ptr<VertexArray> m_SquareVA;
-		std::shared_ptr<Shader> m_BlueShader;
 		std::unique_ptr<VertexBuffer> m_VertexBuffer;
 		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};

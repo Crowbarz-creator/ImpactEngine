@@ -9,6 +9,11 @@
 		"Dist"
 	}
 
+	flags
+	{
+		"MultiProcessorCompile"
+	}
+
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
@@ -17,6 +22,7 @@ IncludeDir["GLFW"] = "Impact/vendor/GLFW/include"
 IncludeDir["Glad"] = "Impact/vendor/Glad/include"
 IncludeDir["ImGui"] = "Impact/vendor/imgui"
 IncludeDir["glm"] = "Impact/vendor/glm"
+IncludeDir["stb_image"] = "Impact/vendor/stb_image"
 
 group "Dependencies"
 	include "Impact/vendor/GLFW"
@@ -81,6 +87,8 @@ project "Impact"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
@@ -98,6 +106,7 @@ project "Impact"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}",
 		"Impact/vendor/imgui/backends"
 	}
 

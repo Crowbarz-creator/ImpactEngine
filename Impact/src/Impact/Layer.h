@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Impact/Core.h"
+#include "Impact/Core/Timestep.h"
 #include "Events/Event.h"
 
 namespace Impact {
@@ -13,7 +14,7 @@ namespace Impact {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
