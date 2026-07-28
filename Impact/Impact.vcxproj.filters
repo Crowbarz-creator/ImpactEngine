@@ -111,6 +111,9 @@
     <ClInclude Include="src\Impact\Renderer\OrthographicCamera.h">
       <Filter>src\Impact\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Impact\Renderer\OrthographicCameraController.h">
+      <Filter>src\Impact\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Impact\Renderer\RenderCommand.h">
       <Filter>src\Impact\Renderer</Filter>
     </ClInclude>
@@ -1443,6 +1446,9 @@
       <Filter>src\Impact\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Impact\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Impact\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Impact\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Impact\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Impact\Renderer\RenderCommand.cpp">

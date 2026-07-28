@@ -9,6 +9,7 @@
 #include "Impact/Input.h"
 #include "Impact/KeyCodes.h"
 #include "Impact/MouseButtonCodes.h"
+#include "Impact/Renderer/OrthographicCameraController.h"
 
 #include "Impact/ImGui/ImGuiLayer.h"
 
@@ -22,7 +23,3 @@
 
 #include "Impact/Renderer/OrthographicCamera.h"
 //-------------------------------------------
-
-// --Entry Point----------------------
-#include "Impact/EntryPoint.h"		//
-// -----------------------------------

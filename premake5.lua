@@ -127,7 +127,6 @@ project "Impact"
 
 		defines
 		{
-			"IMP_PLATFORM_WINDOWS",
 			"IMP_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
@@ -181,11 +180,6 @@ project "Sandbox"
 	filter "system:windows"
 		systemversion "latest"
 		buildoptions "/utf-8"
-
-		defines
-		{
-			"IMP_PLATFORM_WINDOWS"
-		}
 
 	filter "configurations:Debug"
 		defines "IMP_DEBUG"

@@ -1,22 +1,21 @@
 #include "imppch.h"
 #include "Renderer.h"
-
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Impact {
 
+	Scope<Renderer::SceneData> Renderer::s_SceneData = nullptr;
 	RendererAPI::API Renderer::s_RendererAPI = RendererAPI::API::OpenGL;
-
-	struct SceneData
-	{
-		glm::mat4 ViewProjectionMatrix;
-	};
-
-	static SceneData* s_SceneData = new SceneData;
 
 	void Renderer::Init()
 	{
 		RenderCommand::Init();
+		s_SceneData = CreateScope<Renderer::SceneData>();
+	}
+
+	void Renderer::OnWindowResize(uint32_t width, uint32_t height)
+	{
+		RenderCommand::SetViewport(0, 0, width, height);
 	}
 
 	void Renderer::BeginScene(OrthographicCamera& camera)
