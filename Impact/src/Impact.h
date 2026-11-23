@@ -2,6 +2,8 @@
 
 // For use by Impact Engine applications
 
+#include "Impact/Core.h"
+
 #include "Impact/Application.h"
 #include "Impact/Layer.h"
 #include "Impact/Logger.h"
@@ -15,6 +17,7 @@
 
 //-------Renderer----------------------------
 #include "Impact/Renderer/Renderer.h"
+#include "Impact/Renderer/Renderer2D.h"
 #include "Impact/Renderer/RenderCommand.h"
 
 #include "Impact/Renderer/Buffer.h"

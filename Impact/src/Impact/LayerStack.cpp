@@ -1,11 +1,7 @@
 #include "imppch.h"
-#include "LayerStack.h"
+#include "Impact/LayerStack.h"
 
 namespace Impact {
-
-	LayerStack::LayerStack()
-	{
-	}
 
 	LayerStack::~LayerStack()
 	{

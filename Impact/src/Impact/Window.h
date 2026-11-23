@@ -1,7 +1,6 @@
 #pragma once
 
 #include "imppch.h"
-
 #include "Impact/Core.h"
 #include "Events/Event.h"
 
@@ -13,7 +12,7 @@ namespace Impact {
 		unsigned int Width;
 		unsigned int Height;
 
-		WindowProps(const std::string& title = "Impact Engine",
+		WindowProps(const std::string& title = "Impact Engine - Editor",
 			unsigned int width = 1280,
 			unsigned int height = 720)
 			: Title(title), Width(width), Height(height)
@@ -21,7 +20,7 @@ namespace Impact {
 		}
 	};
 
-	class IMPACT_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
@@ -40,7 +39,7 @@ namespace Impact {
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 
 }

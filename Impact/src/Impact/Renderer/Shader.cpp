@@ -1,7 +1,7 @@
 #include "imppch.h"
-#include "Shader.h"
+#include "Impact/Renderer/Shader.h"
 
-#include "Renderer.h"
+#include "Impact/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Impact {
@@ -11,7 +11,7 @@ namespace Impact {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    IMP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(filepath);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(filepath);
 		}
 
 		IMP_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -23,7 +23,7 @@ namespace Impact {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    IMP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(vertexSrc, fragmentSrc);
+		case RendererAPI::API::OpenGL:  return CreateRef<OpenGLShader>(vertexSrc, fragmentSrc);
 		}
 
 		IMP_CORE_ASSERT(false, "Unknown RendererAPI!");

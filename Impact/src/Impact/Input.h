@@ -5,7 +5,7 @@
 
 namespace Impact {
 
-	class IMPACT_API Input
+	class Input
 	{
 	protected:
 		Input() = default;

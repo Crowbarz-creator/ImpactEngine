@@ -1,16 +1,16 @@
 #pragma once
 
 #include "Impact/Core.h"
-#include "Layer.h"
+#include "Impact/Layer.h"
 
 #include <vector>
 
 namespace Impact {
 
-	class IMPACT_API LayerStack
+	class LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

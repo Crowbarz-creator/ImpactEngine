@@ -2,8 +2,6 @@
 .vs/
 bin/
 bin-int/
-Impact/vendor/glm/
 
 # Files
 *.user
-.gitignore

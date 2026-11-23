@@ -1,7 +1,7 @@
 #include "imppch.h"
-#include "VertexArray.h"
+#include "Impact/Renderer/VertexArray.h"
 
-#include "Renderer.h"
+#include "Impact/Renderer/Renderer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace Impact {
@@ -15,7 +15,7 @@ namespace Impact {
             return nullptr;
 
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLVertexArray>();
+            return CreateRef<OpenGLVertexArray>();
         }
 
         IMP_CORE_ASSERT(false, "Unknown RendererAPI!");

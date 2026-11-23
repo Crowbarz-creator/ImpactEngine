@@ -1,5 +1,5 @@
 #include "imppch.h"
-#include "OrthographicCameraController.h"
+#include "Impact/Renderer/OrthographicCameraController.h"
 
 #include "Impact/Input.h"
 #include "Impact/KeyCodes.h"

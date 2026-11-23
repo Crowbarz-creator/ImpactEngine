@@ -8,13 +8,11 @@
 
 namespace Impact {
 
-	class IMPACT_API ImGuiLayer : public Layer
+	class ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();
 		~ImGuiLayer() = default;
-
-		virtual void OnImGuiRender();
 
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Impact/Core.h"
+
 #include "Logger.h"
 
 #ifdef IMP_PLATFORM_WINDOWS

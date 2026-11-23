@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "Impact/Core.h"
 
-#include "Window.h"
+#include "Impact/Window.h"
 #include "LayerStack.h"
 #include "Events/Event.h"
 #include "Events/ApplicationEvent.h"
@@ -19,7 +19,7 @@ namespace Impact {
 	{
 	public:
 		Application();
-		virtual ~Application() = default;
+		virtual ~Application();
 
 		void Run();
 

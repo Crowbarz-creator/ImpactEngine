@@ -1,12 +1,10 @@
 #include <Impact.h>
-
 #include "Impact/Renderer/Texture.h"
-
-#include "Platform/OpenGL/OpenGLShader.h"
-
-#include "imgui/imgui.h"
+#include <imgui/imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "Impact/EntryPoint.h"
+#include "Platform/OpenGL/OpenGLBuffer.h"
 
 class ExampleLayer : public Impact::Layer
 {
@@ -14,7 +12,7 @@ public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Impact::VertexArray::Create());
+		m_VertexArray = Impact::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, 1.0f,
@@ -22,8 +20,7 @@ public:
 			 0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f, 1.0f
 		};
 
-		Impact::Ref<Impact::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Impact::VertexBuffer::Create(vertices, sizeof(vertices)));
+		Impact::Ref<Impact::VertexBuffer> vertexBuffer = Impact::CreateRef<Impact::OpenGLVertexBuffer>(vertices, sizeof(vertices));
 		Impact::BufferLayout layout = {
 			{ Impact::ShaderDataType::Float3, "a_Position" },
 			{ Impact::ShaderDataType::Float4, "a_Color" }
@@ -32,11 +29,10 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Impact::Ref<Impact::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Impact::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		Impact::Ref<Impact::IndexBuffer> indexBuffer = Impact::CreateRef<Impact::OpenGLIndexBuffer>(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Impact::VertexArray::Create());
+		m_SquareVA = Impact::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -45,9 +41,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-
-		Impact::Ref<Impact::VertexBuffer> squareVB;
-		squareVB.reset(Impact::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		Impact::Ref<Impact::VertexBuffer> squareVB = Impact::CreateRef<Impact::OpenGLVertexBuffer>(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout({
 				{ Impact::ShaderDataType::Float3, "a_Position" },
 				{ Impact::ShaderDataType::Float2, "a_TexCoord" }
@@ -55,8 +49,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Impact::Ref<Impact::IndexBuffer> squareIB;
-		squareIB.reset(Impact::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		Impact::Ref<Impact::IndexBuffer> squareIB = Impact::CreateRef<Impact::OpenGLIndexBuffer>(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
@@ -133,16 +126,14 @@ public:
 		m_Texture = Impact::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_CrowbarzLogo = Impact::Texture2D::Create("assets/textures/CrowbarzLogo.png");
 
-		std::dynamic_pointer_cast<Impact::OpenGLShader>(textureShader)->Bind();
-		std::dynamic_pointer_cast<Impact::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
+		textureShader->Bind();
+		textureShader->SetInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Impact::Timestep ts) override
 	{
-		// Update
 		m_CameraController.OnUpdate(ts);
 
-		// Render
 		Impact::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Impact::RenderCommand::Clear();
 
@@ -150,8 +141,8 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		std::dynamic_pointer_cast<Impact::OpenGLShader>(m_FlatColorShader)->Bind();
-		std::dynamic_pointer_cast<Impact::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
 
 		for (int y = 0; y < 20; y++)
 		{
@@ -193,9 +184,6 @@ private:
 	Impact::Ref<Impact::Shader> m_FlatColorShader;
 	Impact::Ref<Impact::VertexArray> m_SquareVA;
 	Impact::Ref<Impact::Texture2D> m_Texture, m_CrowbarzLogo;
-
-	//Impact::Ref<Impact::Shader> m_FlatColorShader;
-	//Impact::Ref<Impact::VertexArray> m_SquareVA;
 
 	Impact::OrthographicCameraController m_CameraController;
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
